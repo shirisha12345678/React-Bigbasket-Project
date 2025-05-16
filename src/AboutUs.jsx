@@ -11,7 +11,7 @@
 
 // export default AboutUs
 import React from 'react';
-import './AboutUs.css'; // Optional external CSS
+import './aboutus.css'; // Optional external CSS
 
 function AboutUs() {
   return (
