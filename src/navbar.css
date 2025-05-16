@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: hwb(0 93% 6%);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  align-items: center;
+  padding-top: 60px; /* Adjust only if content is hidden behind navbar */
+
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.cart-link {
+  position: relative;
+}
+
+.cart-badge {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #590ee4;  /* ✅ Use only one background */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  align-items: center;
+  background: hwb(0 10% 17%);
+
+}
+

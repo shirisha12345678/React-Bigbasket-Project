@@ -1,0 +1,133 @@
+/* Full-page cart container */
+.cart-container {
+  padding: 20px 20px 20px;
+  width: 50vw;
+  margin-left: 50px;
+  min-height: 100vh;
+  background-color: hsl(210, 29%, 97%);
+  font-size: 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Headings */
+.cart-container h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.cart-container h3 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+/* Cart list */
+.cart-container ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Each cart item */
+.cart-container li {
+  background-color: #fff;
+  border: 2px solid #cfd8dc;
+  padding: 10px 20px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Button group */
+.cart-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* General button base */
+.cart-buttons button {
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* + Button - Green */
+.plus-btn {
+  background-color: #388e3c;
+}
+.plus-btn:hover {
+  background-color: #2e7d32;
+}
+
+/* - Button - Orange */
+.minus-btn {
+  background-color: #0879e2;
+}
+.minus-btn:hover {
+  background-color: #0083ef;
+}
+
+/* Remove Button - Red */
+.remove-btn {
+  background-color: #d32f2f;
+}
+.remove-btn:hover {
+  background-color: #b71c1c;
+}
+
+/* Info section alignment */
+.cart-item-info span {
+  margin-right: 20px;
+  font-weight: 500;
+}
+
+.summary-box {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1000px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.summary-box h2 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.discount-buttons button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.discount-buttons button:hover {
+  background-color: #135ba1;
+}
+
+.summary-box p,
+.summary-box h3 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #444;
+}

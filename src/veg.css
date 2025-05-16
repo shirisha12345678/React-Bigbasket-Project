@@ -1,0 +1,72 @@
+/* Full-page container */
+.veg-container {
+  padding: 20px;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-size: 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Force exactly 5 items per row */
+.veg-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Always 5 per row */
+  gap: 20px;
+  width: 100%;
+  max-width: 1300px;
+  box-sizing: border-box;
+}
+
+/* Each veg item */
+.veg-item {
+  width: 100%;
+  border: 3px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Image inside the item */
+.veg-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Add to Cart button */
+.veg-item button {
+  background-color: #18aa44;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.veg-item button:hover {
+  background-color: #12a035;
+}
+
+.veg-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(226, 117, 16, 0.2);
+  border-color: #18aa44;
+}
+
+/* Responsive fallback */
+@media (max-width: 768px) {
+  .veg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

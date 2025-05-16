@@ -1,0 +1,63 @@
+/* Global body background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #eef4ff;
+}
+
+/* Navbar styling */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 20px;
+  background-color: lch(28.74% 99.61 310.56); /* ✅ Solid purple */
+  border-bottom: 1px solid #ccc;
+  z-index: 1000;
+  font-size: 15px;
+}
+
+/* Links in the navbar */
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #18aa44;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+nav a:hover {
+  background-color: lch(38.64% 78.52 38.33);
+}
+
+/* Container for each page/component content */
+.container {
+  background-color: #ffffff;
+  padding: 100px 20px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(202, 22, 22, 0.05);
+}
+
+/* Headings and paragraphs */
+.container h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.container p {
+  font-size: 18px;
+}

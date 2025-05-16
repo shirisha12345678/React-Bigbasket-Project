@@ -1,0 +1,154 @@
+.home-container {
+  padding: 0px 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  width: 100vw;              /* Full viewport width */
+  overflow-x: hidden;        /* Prevent horizontal scroll */
+  box-sizing: border-box;    /* Ensure padding doesn't add extra width */
+}
+
+.home-title {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: #333;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Grid layout with exactly 4 columns on desktop */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 10px 10px 30px;
+}
+
+/* Responsive for tablets */
+@media (max-width: 992px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive for mobile */
+@media (max-width: 576px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.category-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.category-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.category-card h2 {
+  font-size: 1.5rem;
+  margin: 15px 0 5px;
+  color: #5e35b1;
+}
+
+.category-card p {
+  font-size: 0.95rem;
+  color: #666;
+  padding: 0 10px;
+}
+
+.special-scroll-wrapper {
+  overflow: hidden; /* Hide any content that goes outside the wrapper */
+  width: 100%; /* Set the width to the container size */
+  padding: 20px 0;
+}
+
+.special-scroll {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  animation: scroll-left 10s linear infinite; /* Scroll animation */
+}
+
+.special-item {
+  display: inline-block;
+  text-align: center;
+}
+
+.special-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.special-item p {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Define the scroll animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%); /* Start from the right side */
+  }
+  100% {
+    transform: translateX(-100%); /* End at the left side */
+  }
+}
+
+.welcome-box {
+  background-color: #007BFF;  /* Box background color */
+  color: white;  /* Text color */
+  padding: 30px 20px;  /* Padding around the text */
+  border-radius: 12px;  /* Rounded corners */
+  margin-bottom: 40px;  /* Space below the box */
+  text-align: center;  /* Center the text */
+}
+
+.welcome-box h1 {
+  font-size: 2.5rem;  /* Adjust title size */
+  margin-bottom: 10px;  /* Space below the title */
+}
+
+.welcome-box p {
+  font-size: 1.2rem;  /* Adjust paragraph size */
+}
+
+.why-choose-box {
+  background-color: #5210cc;  /* Box background color (green) */
+  color: white;  /* Text color */
+  padding: 30px 20px;  /* Padding around the text */
+  border-radius: 12px;  /* Rounded corners */
+  margin-top: 40px;  /* Space above the box */
+  text-align: center;  /* Center the text */
+}
+
+.why-choose-box h2 {
+  font-size: 2rem;  /* Adjust title size */
+  margin-bottom: 10px;  /* Space below the title */
+}
+
+.why-choose-box p {
+  font-size: 1.1rem;  /* Adjust paragraph size */
+}
+

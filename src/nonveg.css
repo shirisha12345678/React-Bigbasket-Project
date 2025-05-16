@@ -1,0 +1,132 @@
+/* Full-page container for non-veg */
+.nonveg-container {
+  padding: 10px 20px 20px;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: hwb(0 79% 20%);
+  font-size: 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Grid with 5 fixed columns */
+.nonveg-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 1300px;
+  box-sizing: border-box;
+}
+
+/* Non-veg item box */
+.nonveg-item {
+  width: 100%;
+  border: 3px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #fef7f7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Image inside each non-veg item */
+.nonveg-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Add to Cart button */
+.nonveg-item button {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.nonveg-item button:hover {
+  background-color: #e64a19;
+}
+
+.nonveg-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-color: #ff5722;
+}
+
+
+
+/* slidebar */
+.nonveg-container {
+  padding: 10px;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.nonveg-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1300px;
+  box-sizing: border-box;
+}
+
+.nonveg-item {
+  width: 100%;
+  border: 3px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nonveg-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(226, 117, 16, 0.2);
+  border-color: #e63e3e;
+}
+
+.nonveg-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.nonveg-item button {
+  background-color: #e63e3e;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.nonveg-item button:hover {
+  background-color: #c42e2e;
+}
+
+@media (max-width: 768px) {
+  .nonveg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
