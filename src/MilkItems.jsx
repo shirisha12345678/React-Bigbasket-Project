@@ -65,7 +65,7 @@ function MilkItems() {
 
   const handleAddToCart = (item) => {
     dispatch(IncrementItem(item));
-    toast.success("Your order has been placed successfully!");
+  toast.success(`${item.name} added successfully!`); // Dynamic toast message
   };
 
   return (

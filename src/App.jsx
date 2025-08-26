@@ -13,6 +13,7 @@ import {
   FaPenNib,
 } from 'react-icons/fa';
 
+
 import './App.css'; // Optional: Your styles here
 import Home from './Home';
 import Veg from './Veg';
@@ -25,8 +26,9 @@ import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import Signing from './Signing';
 import Navbar from './Navbar';
+import SignUp from './SignUp';
 import { useSelector } from 'react-redux';
-import './store'
+import './store';
 
 function App() {
 const count = useSelector(state => 
@@ -62,6 +64,7 @@ const count = useSelector(state =>
           <Route path='/AboutUs' element={<AboutUs />} />
           <Route path='/ContactUs' element={<ContactUs />} />
           <Route path='/Signing' element={<Signing />} />
+          <Route path='/Signup' element={<SignUp />} />
           <Route path='/Navbar' element={<Navbar />} />
         </Routes>
       </div>

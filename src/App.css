@@ -16,7 +16,7 @@ nav {
   flex-wrap: wrap;
   gap: 10px;
   padding: 12px 20px;
-  background-color: lch(28.74% 99.61 310.56); /* ✅ Solid purple */
+  background-color: lch(32.78% 21.41 221.7); /* ✅ Solid purple */
   border-bottom: 1px solid #ccc;
   z-index: 1000;
   font-size: 15px;
@@ -32,13 +32,13 @@ nav a {
   padding: 10px 16px;
   border: none;
   border-radius: 6px;
-  background-color: #18aa44;
+  background-color: hsl(108, 85%, 48%);
   font-weight: bold;
   font-size: 15px;
 }
 
 nav a:hover {
-  background-color: lch(38.64% 78.52 38.33);
+  background-color: lch(60.24% 63.95 83.12);
 }
 
 /* Container for each page/component content */

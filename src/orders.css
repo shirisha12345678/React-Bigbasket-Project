@@ -4,28 +4,58 @@
   margin: auto;
 }
 
+/* Order card container */
 .order-card {
-  background-color: #f9f9f9;
+  background-color: #fefefe;
   border: 1px solid #ddd;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
+/* Order title */
 .order-card h3 {
   margin: 0 0 10px;
+  color: #003366; /* deep blue */
+  font-size: 20px;
 }
 
+/* Generic order info */
 .order-card p {
   margin: 5px 0;
+  font-size: 16px;
+  color: #444;
 }
 
+/* Specific styles for Order ID, Date, and Total */
+.order-id {
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.order-date {
+  color: #888;
+  font-style: italic;
+}
+
+.order-total {
+  color: #228B22; /* forest green */
+  font-weight: bold;
+}
+
+/* Order items list */
 .order-card ul {
   margin-top: 10px;
   padding-left: 20px;
+  color: #333;
+  font-size: 15px;
 }
 
+/* Empty orders message */
 .no-orders {
   text-align: center;
   margin-top: 50px;
+  font-size: 18px;
+  color: #999;
 }

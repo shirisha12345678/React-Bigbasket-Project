@@ -1,6 +1,6 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 // import MilkItems from './MilkItems';
-import Cart from "./Cart";
+import Cart from './Cart';
 
 // local cart from local storage//
       const savedCart = localStorage.getItem("Cart");
@@ -136,21 +136,70 @@ const orderSlice = createSlice({
 });
 
 
+// // 5. Configure Store
+// const store = configureStore({
+//   reducer: {
+//     products: productsSlice.reducer,
+//     cart: cartSlice.reducer,
+//     orders: orderSlice.reducer,
+//     users: userSlice.reducer
+//   }
+// });
+
+
+// // 6. Save cart to localStorage AFTER store is defined
+// store.subscribe(() => {
+//   const state = store.getState();
+//   localStorage.setItem("Cart", JSON.stringify(state.cart));
+// });
+
+
+const userSlice = createSlice({
+  name: 'users',
+  initialState: {
+    users: [], // to store registered users
+    isAuthenticated: false,
+    currentUser: null
+  },
+  reducers: {
+    registerUser: (state, action) => {
+      state.users.push(action.payload);
+    },
+    loginUser: (state, action) => {
+      const { username, password } = action.payload;
+      const user = state.users.find(u => u.username === username && u.password === password);
+      if (user) {
+        state.isAuthenticated = true;
+        state.currentUser = user;
+      } else {
+        alert("Invalid Credentials");
+      }
+    },
+    logout: (state) => {
+      state.isAuthenticated = false;
+      state.currentUser = null;
+    }
+  }
+});
+
+
 // 5. Configure Store
 const store = configureStore({
   reducer: {
     products: productsSlice.reducer,
     cart: cartSlice.reducer,
     orders: orderSlice.reducer,
+    users: userSlice.reducer
   }
 });
-
 
 // 6. Save cart to localStorage AFTER store is defined
 store.subscribe(() => {
   const state = store.getState();
   localStorage.setItem("Cart", JSON.stringify(state.cart));
 });
+
+export const { registerUser, loginUser, logout } = userSlice.actions;
 
 export const { addOrder } = orderSlice.actions;
 

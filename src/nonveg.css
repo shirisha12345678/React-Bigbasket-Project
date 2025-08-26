@@ -53,6 +53,13 @@
   margin-top: 8px;
 }
 
+/* 2. Make 'nonveg Items' heading green */
+.nonveg-container h1 {
+  color: #aa1818;
+  margin-bottom: 10px;
+}
+
+
 .nonveg-item button:hover {
   background-color: #e64a19;
 }

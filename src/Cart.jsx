@@ -147,7 +147,7 @@ import {
   RemoveItem,
   clearCart,
   addOrder,
-} from './store';
+} from './store'; // Adjust path if needed
 import QRCode from 'react-qr-code';
 import emailjs from 'emailjs-com';
 import './cart.css';
@@ -172,7 +172,7 @@ function Cart() {
   const discountAmount = (totalPrice * discountPercent) / 100;
   const afterDiscount = totalPrice - discountAmount;
   const couponDiscount = (afterDiscount * couponCodeDiscountPercent) / 100;
-  const taxAmount = ((afterDiscount - couponDiscount) * 5) / 100;
+  const taxAmount = ((afterDiscount - couponDiscount) * 18) / 100;
   const finalPrice = afterDiscount - couponDiscount + taxAmount;
 
   const SERVICE_ID = 'service_p3hvfbf';
@@ -239,69 +239,69 @@ function Cart() {
   };
 
   return (
-    <div className="cart-container">
-      <h2>Your Cart</h2>
-      <h3>Total Items: {totalCartCount}</h3>
+    <div className="cart-page-wrapper">
+      <div className="cart-items-section">
+        <h2>😊 Your Cart 😊</h2>
+        <h3>Total Items: {totalCartCount}</h3>
 
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <ul>
-          {cartItems.map((item, index) => (
-            <li key={index}>
-              <div className="cart-item-info">
-                <span>
-                  {index + 1}. Name: {item.name} Price ₹{item.price} Quantity: {item.quantity}
-                </span>
-              </div>
-              <div className="cart-buttons">
-                <button className="plus-btn" onClick={() => dispatch(IncrementItem(item))}>
-                  +
-                </button>
-                <button className="minus-btn" onClick={() => dispatch(DecrementItem(item))}>
-                  –
-                </button>
-                <button className="remove-btn" onClick={() => dispatch(RemoveItem(item))}>
-                  Remove
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+        {cartItems.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          <ol>
+            {cartItems.map((item, index) => (
+              <li key={index}>
+                <div className="cart-item-info">
+                  <img src={item.image} alt={item.name} className="cart-item-image" />
+                  <div>
+                    <strong>{item.name}</strong>
+                    <p>₹{item.price}</p>
+                  </div>
+                </div>
+                <div className="cart-buttons">
+                  <button className="plus-btn" onClick={() => dispatch(IncrementItem(item))}>+</button>
+                  <span className="item-qty">{item.quantity}</span>
+                  <button className="minus-btn" onClick={() => dispatch(DecrementItem(item))}>–</button>
+                  <button className="remove-btn" onClick={() => dispatch(RemoveItem(item))}>Remove</button>
+                </div>
+              </li>
+            ))}
+          </ol>
+        )}
+      </div>
 
       {cartItems.length > 0 && (
-        <div className="summary-box">
-          <h2>Your Total Price: ₹{totalPrice.toFixed(2)}</h2>
+        <div className="bill-summary">
+          <h2>🧾 Bill Summary</h2>
+          <p>💰 Total Price: ₹{totalPrice.toFixed(2)}</p>
+          <p>🔖 Manual Discount: -₹{discountAmount.toFixed(2)}</p>
+          <p>🏷️ Coupon Discount: -₹{couponDiscount.toFixed(2)}</p>
 
           <div className="discount-buttons">
-            <button onClick={() => setDiscountPercent(10)}>Apply 10% Discount</button>
-            <button onClick={() => setDiscountPercent(20)}>Apply 20% Discount</button>
-            <button onClick={() => setDiscountPercent(30)}>Apply 30% Discount</button>
+            <button onClick={() => setDiscountPercent(10)}>10% Discount</button>
+            <button onClick={() => setDiscountPercent(20)}>20% Discount</button>
+            <button onClick={() => setDiscountPercent(30)}>30% Discount</button>
           </div>
-
-          <p>Discount ({discountPercent}%): ₹{discountAmount.toFixed(2)}</p>
 
           <div className="coupon-box">
             <input
               type="text"
               value={couponCode}
               onChange={(e) => setCouponCode(e.target.value)}
-              placeholder="Enter Coupon Code (RATAN10/20/30)"
+              placeholder="Enter coupon code..."
             />
-            <button onClick={handleApplyCoupon}>Apply Coupon</button>
-            {couponName && (
-              <p className="text-info">
-                Coupon "{couponName}" Applied: -₹{couponDiscount.toFixed(2)}
-              </p>
-            )}
+            <button onClick={handleApplyCoupon}>Apply</button>
           </div>
 
-          <p>Tax (5%): ₹{taxAmount.toFixed(2)}</p>
-          <h3>Final Price to Pay: ₹{finalPrice.toFixed(2)}</h3>
+          <p>🧾 Tax (18%): ₹{taxAmount.toFixed(2)}</p>
+          <h3>💵 Final Amount: ₹{finalPrice.toFixed(2)}</h3>
+
+          <h4>Select Payment Method</h4>
+          <div className="payment-buttons">
+            <button onClick={() => setPaymentMethod('qr')}>QR Code</button>
+            <button onClick={() => setPaymentMethod('card')}>Card</button>
+          </div>
 
           <div className="email-box">
-            <label>📧 Enter your Gmail for order confirmation:</label>
             <input
               type="email"
               value={userEmail}
@@ -311,54 +311,35 @@ function Cart() {
             />
           </div>
 
-          <button
-            className="place-order-btn"
-            onClick={handlePlaceOrder}
-            disabled={!userEmail || cartItems.length === 0}
-          >
-            🛒 Place Order
+          <button className="place-order-btn" onClick={handlePlaceOrder}>
+            🛒 Complete Purchase
           </button>
-
-          <div className="payment-method">
-            <h3>🧾 Select Payment Method:</h3>
-            <button onClick={() => setPaymentMethod('qr')}>📱 QR Code</button>
-            <button onClick={() => setPaymentMethod('card')}>💳 Card</button>
-          </div>
 
           {paymentMethod === 'qr' && (
             <div className="qr-section">
-              <h4>📷 Scan UPI QR to Pay ₹{finalPrice.toFixed(2)}</h4>
-              <QRCode value={`upi://pay?pa=${UPI_ID}&pn=YourStoreName&am=${finalPrice.toFixed(2)}&cu=INR`} />
+              <h4>📷 Scan UPI QR</h4>
+              <QRCode value={`upi://pay?pa=${UPI_ID}&pn=TastyBites&am=${finalPrice.toFixed(2)}&cu=INR`} />
               <p>UPI ID: {UPI_ID}</p>
             </div>
           )}
 
           {paymentMethod === 'card' && (
             <div className="card-section">
-              <h4>💳 Enter Card Details</h4>
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   alert('✅ Card payment processed successfully!');
                 }}
               >
-                <div>
-                  <label>Card Number:</label>
-                  <input type="text" placeholder="1234 5678 9012 3456" required />
-                </div>
-                <div>
-                  <label>Cardholder Name:</label>
-                  <input type="text" placeholder="shirisha thanugula" required />
-                </div>
-                <div>
-                  <label>Expiry Date:</label>
-                  <input type="text" placeholder="MM/YY" required />
-                </div>
-                <div>
-                  <label>CVV:</label>
-                  <input type="password" placeholder="123" required />
-                </div>
-                <button type="submit">💳 Pay ₹{finalPrice.toFixed(2)}</button>
+                <label>Card Number:</label>
+                <input type="text" placeholder="1234 5678 9012 3456" required />
+                <label>Name:</label>
+                <input type="text" placeholder="Your Name" required />
+                <label>Expiry:</label>
+                <input type="text" placeholder="MM/YY" required />
+                <label>CVV:</label>
+                <input type="password" placeholder="123" required />
+                <button type="submit">Pay ₹{finalPrice.toFixed(2)}</button>
               </form>
             </div>
           )}

@@ -38,7 +38,7 @@ export default function Navbar() {
       </Link>
       <Link to="/AboutUs"><FaInfoCircle /> About Us</Link>
       <Link to="/ContactUs"><FaPhone /> Contact Us</Link>
-      <Link to="/Signing"><FaPenNib /> Sign In</Link>
+      <Link to="/Signin"><FaPenNib /> Sign In</Link>
     </nav>
   );
 }

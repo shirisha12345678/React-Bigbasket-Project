@@ -11,6 +11,12 @@
   align-items: center;
 }
 
+/* 2. Make 'milk Items' heading green */
+.milk-container h1 {
+  color: #dd890b;
+  margin-bottom: 10px;
+}
+
 /* Grid with exactly 5 columns */
 .milk-grid {
   display: grid;

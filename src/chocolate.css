@@ -4,7 +4,7 @@
   width: 100vw;
   min-height: 100vh;
   background-color: #ffffff;
-  font-size: 18px;
+  font-size: 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -45,6 +45,12 @@
   height: 120px;
   object-fit: cover;
   border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* 2. Make 'chocolate Items' heading green */
+.chocolate-container h1 {
+  color: #6d12e4;
   margin-bottom: 10px;
 }
 

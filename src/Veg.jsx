@@ -73,7 +73,7 @@ function Veg() {
   // Add item to cart and show success toast
   const handleAddToCart = (item) => {
     dispatch(IncrementItem(item)); // Redux dispatch
-    toast.success('Your order has been placed successfully!'); // Toast message
+  toast.success(`${item.name} added successfully!`); // Dynamic toast message
   };
 
   return (
